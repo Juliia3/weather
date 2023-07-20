@@ -5,8 +5,13 @@
 }
 
 body {
-    // font-family: $main-font;
-    color: black;
+    font-family: $main-font;
+    color: $white;
+    background-color: $bg-color;
+}
+
+a {
+    color: $white;
 }
 
 a:hover {
