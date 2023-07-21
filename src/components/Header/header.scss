@@ -1,0 +1,16 @@
+@import '../../assets/styles/variables/_colors.scss';
+@import '../../assets/styles/variables/_fonts.scss';
+
+.header {
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        padding: 40px 0;
+    }
+    &__list {
+        text-transform: uppercase;
+        font-weight: 500;
+        display: flex;
+        gap: 40px;
+    }
+}

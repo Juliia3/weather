@@ -1,0 +1,23 @@
+@import '../../assets/styles/variables/_colors.scss';
+@import '../../assets/styles/variables/_fonts.scss';
+
+.main {
+
+
+    &__input {
+        width: 400px;
+        padding: 10px 50px;
+        background-color: $card-color;
+        border-radius: 50px;
+        border-radius: 25px;
+        color: $white;
+        font-family: $main-font;
+        font-size: 18px;
+    }
+    &__input::placeholder {
+        color: $white;
+        font-family: $main-font;
+        font-size: 18px;
+    }
+
+}

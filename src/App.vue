@@ -2,11 +2,14 @@
 import { RouterLink, RouterView } from 'vue-router'
 import './assets/styles/index.scss'
 import Header from './components/Header/Header.vue'
+import Main from './components/Main/Main.vue'
 </script>
 
 <template>
-  <Header />
-  <header>
+  <div class="page-wrapper">
+      <Header />
+      <Main />
+  <!-- <header>
 
     <div class="wrapper">
 
@@ -15,7 +18,9 @@ import Header from './components/Header/Header.vue'
         <RouterLink to="/about">About</RouterLink>
       </nav>
     </div>
-  </header>
+  </header> -->
 
-  <RouterView />
+  <!-- <RouterView /> -->
+  </div>
+
 </template>
