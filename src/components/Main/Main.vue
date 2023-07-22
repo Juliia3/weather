@@ -1,6 +1,8 @@
 <script setup>
 import './main.scss'
 import Card from '../Card/Card.vue'
+import cloud from '@/assets/img/cloudy.svg'
+import bg_cloud from '@/assets/img/bg_cloud.png'
 </script>
 
 <template>
@@ -11,7 +13,9 @@ import Card from '../Card/Card.vue'
             </div>
             <Card
             day="Friday"
-            icon="../../assets/img/cloudy.png"
+            :icon="cloud"
+            degrees="21°C"
+            :bg="bg_cloud"
             />
         </div>
     </main>

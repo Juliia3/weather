@@ -28,12 +28,15 @@ defineProps({
 
 <template>
     <div class="card">
-        <div class="card__container container">
+        <div class="card__container">
             <div class="card__title">
                 <img class="card__bg" :src="bg">
-                <h1 class="card__day">{{ day }}</h1>
-                <div class="card__icon"><img :src="icon" alt="icon"></div>
-                <h2 class="card__degrees">{{ degrees }}</h2>
+                <div class="card__title-text">
+                   <h1 class="card__day">{{ day }}</h1>
+                    <div class="card__icon"><img :src="icon" alt="icon"></div>
+                    <h2 class="card__degrees">{{ degrees }}</h2> 
+                </div>
+                
             </div>
         </div>
     </div>
