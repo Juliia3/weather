@@ -4,9 +4,10 @@
 .card {
     text-align: center;
     &__container {
-        background-color: $bg-color;
+        background-color: $card-color;
         display: flex;
         gap: 200px;
+        border-radius: 50px;
     }
     &__title {
         max-width: 425px;
