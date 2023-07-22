@@ -41,7 +41,7 @@ defineProps({
     <div class="card">
         <div class="card__container">
             <div class="card_bg"
-            :style="{ 'background-image': 'url(' + bg + ')', display:'flex', justifyContent: 'center', alignItems: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', width:'310px', height: '320px' }">
+            :style="{ 'background-image': 'url(' + bg + ')', display:'flex', justifyContent: 'center', alignItems: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', width:'435px', height: '458px' }">
                 <div class="card__title">
                     <div class="card__title-text">
                         <h1 class="card__day">{{ day }}</h1>
@@ -52,8 +52,8 @@ defineProps({
             </div>
             <div class="card__info-block">
                 <div class="card__filter">
-                    <button>Day</button>
-                    <button>Week</button>
+                    <button class="card__button">Day</button>
+                    <button class="card__button">Week</button>
                 </div>
                 <h2 class="card__city">{{ city }}</h2>
                 <div class="card__info">
