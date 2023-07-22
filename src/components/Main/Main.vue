@@ -1,6 +1,6 @@
 <script setup>
 import './main.scss'
-
+import Card from '../Card/Card.vue'
 </script>
 
 <template>
@@ -9,6 +9,10 @@ import './main.scss'
             <div class="main__search">
                 <input class="main__input" type="text" placeholder="Search..." />
             </div>
+            <Card
+            day="Friday"
+            icon="../../assets/img/cloudy.png"
+            />
         </div>
     </main>
 </template>
