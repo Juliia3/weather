@@ -2,7 +2,8 @@
 import './main.scss'
 import Card from '../Card/Card.vue'
 import cloud from '@/assets/img/cloudy.svg'
-import bg_cloud from '@/assets/img/bg_cloud.png'
+import bgCloud from '@/assets/img/bg_cloud.png'
+import smallSun from '@/assets/img/small-sun.svg'
 </script>
 
 <template>
@@ -15,7 +16,11 @@ import bg_cloud from '@/assets/img/bg_cloud.png'
             day="Friday"
             :icon="cloud"
             degrees="21°C"
-            :bg="bg_cloud"
+            :bg="bgCloud"
+            city="London"
+            time="13"
+            :iconSmall="smallSun"
+            degreesAll="25°C"
             />
         </div>
     </main>

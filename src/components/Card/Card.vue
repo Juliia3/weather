@@ -22,21 +22,77 @@ defineProps({
         type: String,
         required: true
     },
-
+    time: {
+        type: String,
+        required: true
+    },
+    iconSmall:{
+        type: String,
+        required: true
+    },
+    degreesAll: {
+        type: Number,
+        required: true
+    },
 })
 </script>
 
 <template>
     <div class="card">
         <div class="card__container">
-            <div class="card__title">
-                <img class="card__bg" :src="bg">
-                <div class="card__title-text">
-                   <h1 class="card__day">{{ day }}</h1>
-                    <div class="card__icon"><img :src="icon" alt="icon"></div>
-                    <h2 class="card__degrees">{{ degrees }}</h2> 
+            <div class="card_bg"
+            :style="{ 'background-image': 'url(' + bg + ')', display:'flex', justifyContent: 'center', alignItems: 'center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', width:'310px', height: '320px' }">
+                <div class="card__title">
+                    <div class="card__title-text">
+                        <h1 class="card__day">{{ day }}</h1>
+                        <div class="card__icon"><img :src="icon" alt="icon"></div>
+                        <h2 class="card__degrees">{{ degrees }}</h2>
+                    </div>
                 </div>
-                
+            </div>
+            <div class="card__info-block">
+                <div class="card__filter">
+                    <button>Day</button>
+                    <button>Week</button>
+                </div>
+                <h2 class="card__city">{{ city }}</h2>
+                <div class="card__info">
+                    <div class="card__info-box">
+                        <p class="card__time">{{ time }}</p>
+                        <div class="card__icon-small"><img :src="iconSmall" alt="icon"></div>
+                        <p class="card__degrees">{{ degreesAll }}</p>
+                    </div>
+                    <div class="card__info-box">
+                        <p class="card__time">{{ time }}</p>
+                        <div class="card__icon-small"><img :src="iconSmall" alt="icon"></div>
+                        <p class="card__degrees">{{ degreesAll }}</p>
+                    </div>
+                    <div class="card__info-box">
+                        <p class="card__time">{{ time }}</p>
+                        <div class="card__icon-small"><img :src="iconSmall" alt="icon"></div>
+                        <p class="card__degrees">{{ degreesAll }}</p>
+                    </div>
+                    <div class="card__info-box">
+                        <p class="card__time">{{ time }}</p>
+                        <div class="card__icon-small"><img :src="iconSmall" alt="icon"></div>
+                        <p class="card__degrees">{{ degreesAll }}</p>
+                    </div>
+                    <div class="card__info-box">
+                        <p class="card__time">{{ time }}</p>
+                        <div class="card__icon-small"><img :src="iconSmall" alt="icon"></div>
+                        <p class="card__degrees">{{ degreesAll }}</p>
+                    </div>
+                    <div class="card__info-box">
+                        <p class="card__time">{{ time }}</p>
+                        <div class="card__icon-small"><img :src="iconSmall" alt="icon"></div>
+                        <p class="card__degrees">{{ degreesAll }}</p>
+                    </div>
+                    <div class="card__info-box">
+                        <p class="card__time">{{ time }}</p>
+                        <div class="card__icon-small"><img :src="iconSmall" alt="icon"></div>
+                        <p class="card__degrees">{{ degreesAll }}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

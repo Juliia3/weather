@@ -2,25 +2,32 @@
 @import '../../assets/styles/variables/_fonts.scss';
 
 .card {
-
+    text-align: center;
     &__container {
         background-color: $bg-color;
-        z-index: 1;
-        position: relative;
+        display: flex;
+        gap: 200px;
     }
     &__title {
-        position: absolute;
-        top: 0;
-        left: 0;
         max-width: 425px;
-
     }
     &__bg {
-        position: absolute;
-        max-width: 425px;
         z-index: 1;
     }
     &__title-text {
         z-index: 300;
+    }
+
+    &__filter {
+        margin-bottom: 20px;
+    }
+
+    &__city {
+        margin-bottom: 20px;
+    }
+
+    &__info {
+        display: flex;
+        gap: 20px;
     }
 }
