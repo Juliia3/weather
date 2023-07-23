@@ -4,13 +4,24 @@ import Card from '../Card/Card.vue'
 import cloud from '@/assets/img/cloudy.svg'
 import bgCloud from '@/assets/img/bg_cloud.png'
 import smallSun from '@/assets/img/small-sun.svg'
+
 </script>
 
 <template>
     <main class="main">
         <div class="main__container container">
             <div class="main__search">
-                <input class="main__input" type="text" placeholder="Search..." />
+                <input 
+                class="main__input" 
+                type="search" 
+                placeholder="Search..." 
+                v-model="search"
+                />
+                <ul>
+                    <li v-for="item in searchHandler" :key="item.id">
+                        <p>This is {{ item.name }}</p>
+                    </li>
+                </ul>
             </div>
             <Card
             day="Friday"
@@ -25,3 +36,28 @@ import smallSun from '@/assets/img/small-sun.svg'
         </div>
     </main>
 </template>
+
+<script>
+import {cities} from '../data/cities'
+
+export default {
+    data() {
+        return {
+            search: '',
+            data: []
+        }
+    },
+    created() {
+        this.data = cities;
+        console.log(this.data);
+    },
+    computed: {
+        searchHandler() {
+            return this.data.filter(elem => {
+                return elem.name.toLowerCase().includes(this.search.toLowerCase())
+            })
+        }
+    }
+}
+
+</script>
