@@ -55,7 +55,7 @@ defineProps({
                     <button class="card__button">Day</button>
                     <button class="card__button">Week</button>
                 </div>
-                <h2 class="card__city">{{ city }}</h2>
+                <h2 class="card__city">{{ city }} <button class="plus">+</button></h2> 
                 <div class="card__info">
                     <div class="card__info-box">
                         <p class="card__time">{{ time }}</p>

@@ -34,13 +34,21 @@
         font-family: $main-font;
         font-size: 14px;
         background-color: $bg2-color;
+        opacity: 0.6;
+    }
 
+    &__button:hover {
+        opacity: 1;
     }
 
     &__city {
         margin-bottom: 20px;
         font-size: 40px;
         font-weight: 100;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
     }
 
     &__info {
@@ -50,4 +58,15 @@
         border-radius: 25px;
         padding: 30px;
     }
+}
+
+.plus {
+    font-family: $main-font;
+    font-size: 50px;
+    background-color: transparent;
+    opacity: 0.6;
+}
+
+.plus:hover {
+    opacity: 1;
 }

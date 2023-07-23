@@ -10,16 +10,16 @@ import smallSun from '@/assets/img/small-sun.svg'
 <template>
     <main class="main">
         <div class="main__container container">
-            <div class="main__search">
+            <div class="main__search dropdown">
                 <input 
-                class="main__input" 
+                class="main__input dropbtn" 
                 type="search" 
                 placeholder="Search..." 
                 v-model="search"
                 />
-                <ul>
+                <ul class="dropdown-content">
                     <li v-for="item in searchHandler" :key="item.id">
-                        <p>This is {{ item.name }}</p>
+                        <p>{{ item.name }}</p>
                     </li>
                 </ul>
             </div>
@@ -54,7 +54,7 @@ export default {
     computed: {
         searchHandler() {
             return this.data.filter(elem => {
-                return elem.name.toLowerCase().includes(this.search.toLowerCase())
+                return this.search.length && elem.name.toLowerCase().includes(this.search.toLowerCase())
             })
         }
     }
