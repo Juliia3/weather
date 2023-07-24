@@ -31,18 +31,23 @@ import axios from 'axios'
                 type="search" 
                 placeholder="Search..." 
                 v-model="search"
+                @keypress="getCitiesList()"
+                @search="getCitiesList()"
                 />
                 <ul class="dropdown-content">
-                    <li v-for="item in searchHandler" :key="item.id" @click="getApi(item.name)">
+                    <!-- <li v-for="item in searchHandler" :key="item.id" @click="getApi(item.name)">
                         <p>{{ item.name }}</p>
+                    </li> -->
+                    <li v-for="item in data" @click="getCurrentWeather(item.name)">
+                        <p>{{ item.name }}, {{ item.country }}</p>
                     </li>
                 </ul>
             </div>
             <Card
             :day="today"
-            :icon="cloud"
+            :icon="getWeatherIcon()"
             :degrees="currentTemp+' °C'"
-            :bg="bgCloud"
+            :bg="bgCloud" 
             :city="currentCity"
             time="13"
             :iconSmall="smallSun"
@@ -53,7 +58,8 @@ import axios from 'axios'
 </template>
 
 <script>
-import {cities} from '../data/cities'
+// import {cities} from '../data/cities'
+// import { getCurrentInstance } from 'vue'
 
 export default {
     data() {
@@ -62,26 +68,49 @@ export default {
             today: '',
             currentTemp: '',
             search: '',
-            data: []
+            data: [],
+            citiesApiConfig: {
+                headers: {
+                    "X-Api-Key": "9omKBDiU5H2/HfwN1VKzng==hG2jtO3UCRA9UvPq"
+                }
+            },
+            weatherIcons: {
+                Clouds: {
+                    main: cloud,
+                    bg: bgCloud,
+                },
+                Sun: {
+                    main: sun,
+                    bg: bgSun,
+                },
+                Rain: {
+                    main: rain,
+                    bg: bgRain,
+                },
+                Thunder: {
+                    main: thunder,
+                    bg: bgThunder,
+                },
+            }
         }
     },
     created() {
-        this.data = cities;
+        // this.data = cities;
         this.getCityByIP();
         this.today = (new Date).toLocaleDateString("en-US", {weekday: 'long'});
     },
-    computed: {
-        async searchHandler() {
-            if (this.search.length){
-                const cities = await this.getCitiesList(this.search)
-                console.log(cities)
-                return cities;
-        }
-        return []
-    }
-    },
+    // computed: {
+    //     async searchHandler() {
+    //         if (this.search.length){
+    //             const cities = await this.getCitiesList(this.search)
+    //             console.log(cities)
+    //             return cities;
+    //     }
+    //     return []
+    // }
+    // },
     methods: {
-        async getApi(city) {
+        async getCurrentWeather(city) {
             const getWeather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?units=metric&q=${city.toLowerCase()}&appid=261514ec6ead072a338a344dce0fb58f`)
             
             const data = getWeather.data;
@@ -94,23 +123,32 @@ export default {
         },
         async get7DaysForecast(lat, lon) {
             const get7Days = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,hourly,minutely,alerts&units=metric&appid=547343e58f273e78496cc775ed43bf31`)
-            console.log(get7Days.data)
+            // console.log(get7Days.data)
         },
         async getCityByIP() {
             const getCity = await axios.get('https://ipapi.co/json/');
             let data = getCity.data;
-            this.getApi(data.city)
+            // this.getApi(data.city)
+            this.getCurrentWeather(data.city)
         },
-        async getCitiesList(search) {
-            const config = {
-                headers: {
-                    "X-Api-Key": "9omKBDiU5H2/HfwN1VKzng==hG2jtO3UCRA9UvPq"
-                }
-            };
-            const citiesList = await axios.get(`https://api.api-ninjas.com/v1/city?name=${search.toLowerCase()}&limit=10`, config)
-            return citiesList.data
-        }
-    }
+        // async getCitiesList(search) {
+        //     const config = {
+        //         headers: {
+        //             "X-Api-Key": "9omKBDiU5H2/HfwN1VKzng==hG2jtO3UCRA9UvPq"
+        //         }
+        //     };
+        //     const citiesList = await axios.get(`https://api.api-ninjas.com/v1/city?name=${search.toLowerCase()}&limit=10`, config)
+        //     return citiesList.data
+        // }
+        async getCitiesList() { 
+            if (!this.search.length){
+                this.data = [];
+                return;
+            }
+            const citiesList = await axios.get(`https://api.api-ninjas.com/v1/city?name=${this.search.toLowerCase()}&limit=10&min_population=40000`, this.citiesApiConfig)
+            this.data = citiesList.data
+    },
+}
 }
 
 </script>
