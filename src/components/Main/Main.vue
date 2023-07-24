@@ -1,9 +1,23 @@
 <script setup>
 import './main.scss'
 import Card from '../Card/Card.vue'
-import cloud from '@/assets/img/cloudy.svg'
-import bgCloud from '@/assets/img/bg_cloud.png'
+
+import smallCloud from '@/assets/img/small-cloud.svg'
+import cloud from '@/assets/img/cloud.svg'
+import bgCloud from '@/assets/img/bg-cloud.png'
+
 import smallSun from '@/assets/img/small-sun.svg'
+import sun from '@/assets/img/sun.svg'
+import bgSun from '@/assets/img/bg-sun.svg'
+
+import smallRain from '@/assets/img/small-rain.svg'
+import rain from '@/assets/img/rain.svg'
+import bgRain from '@/assets/img/bg-rain.svg'
+
+import smallThunder from '@/assets/img/small-thunder.svg'
+import thunder from '@/assets/img/thunder.svg'
+import bgThunder from '@/assets/img/bg-thunder.svg'
+
 import axios from 'axios'
 
 </script>
@@ -57,11 +71,14 @@ export default {
         this.today = (new Date).toLocaleDateString("en-US", {weekday: 'long'});
     },
     computed: {
-        searchHandler() {
-            return this.data.filter(elem => {
-                return this.search.length && elem.name.toLowerCase().includes(this.search.toLowerCase())
-            })
+        async searchHandler() {
+            if (this.search.length){
+                const cities = await this.getCitiesList(this.search)
+                console.log(cities)
+                return cities;
         }
+        return []
+    }
     },
     methods: {
         async getApi(city) {
@@ -84,6 +101,15 @@ export default {
             let data = getCity.data;
             this.getApi(data.city)
         },
+        async getCitiesList(search) {
+            const config = {
+                headers: {
+                    "X-Api-Key": "9omKBDiU5H2/HfwN1VKzng==hG2jtO3UCRA9UvPq"
+                }
+            };
+            const citiesList = await axios.get(`https://api.api-ninjas.com/v1/city?name=${search.toLowerCase()}&limit=10`, config)
+            return citiesList.data
+        }
     }
 }
 

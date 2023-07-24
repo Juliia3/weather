@@ -1,5 +1,6 @@
 <script setup>
 import './card.scss'
+import Chart from '../Chart/Chart.vue'
 
 defineProps({
     city: {
@@ -57,7 +58,8 @@ defineProps({
                 </div>
                 <h2 class="card__city">{{ city }} <button class="plus">+</button></h2> 
                 <div class="card__info">
-                    <div class="card__info-box">
+                    <Chart />
+                    <!-- <div class="card__info-box">
                         <p class="card__time">{{ time }}</p>
                         <div class="card__icon-small"><img :src="iconSmall" alt="icon"></div>
                         <p class="card__degrees">{{ degreesAll }}</p>
@@ -86,12 +88,7 @@ defineProps({
                         <p class="card__time">{{ time }}</p>
                         <div class="card__icon-small"><img :src="iconSmall" alt="icon"></div>
                         <p class="card__degrees">{{ degreesAll }}</p>
-                    </div>
-                    <div class="card__info-box">
-                        <p class="card__time">{{ time }}</p>
-                        <div class="card__icon-small"><img :src="iconSmall" alt="icon"></div>
-                        <p class="card__degrees">{{ degreesAll }}</p>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
