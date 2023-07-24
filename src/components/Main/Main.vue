@@ -148,6 +148,14 @@ export default {
             const citiesList = await axios.get(`https://api.api-ninjas.com/v1/city?name=${this.search.toLowerCase()}&limit=10&min_population=40000`, this.citiesApiConfig)
             this.data = citiesList.data
     },
+    getWeatherIcon() {
+        if (!this.data.weather || (this.data.weather[0] >= 700 && this.data.weather[0] < 800)){
+               return cloud; 
+            }
+            else{
+                return weatherIcons[data.weather[0].main]
+            }
+    }
 }
 }
 
