@@ -1,0 +1,12 @@
+@import '../../assets/styles/variables/_colors.scss';
+@import '../../assets/styles/variables/_fonts.scss';
+@import '../../assets/styles/variables/_sizing.scss';
+
+.chart {
+    width: 600px;
+    background-color: $white;
+    border-radius: 20px;
+    @media (max-width: $phone) {
+        width: 100%;
+    }
+}

@@ -1,16 +1,25 @@
 @import '../../assets/styles/variables/_colors.scss';
 @import '../../assets/styles/variables/_fonts.scss';
+@import '../../assets/styles/variables/_sizing.scss';
 
 .header {
     &__container {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 40px 0;
+        @media (max-width: $phone) {
+            padding: 40px 0 40px 0;
+        }
     }
     &__list {
         text-transform: uppercase;
         font-weight: 500;
         display: flex;
         gap: 40px;
+        @media (max-width: $phone) {
+            font-size: 18px;
+            gap: 20px;
+        }
     }
 }

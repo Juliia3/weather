@@ -1,10 +1,12 @@
 <template>
-    <div style="width: 600px;background-color: white;border-radius: 20px;">
+    <!-- <div class="chart" style="width: 600px;background-color: white;border-radius: 20px;"> -->
+        <div class="chart">
         <canvas id="chart"></canvas>
     </div>
 </template>
 
 <script>
+import './chart.scss'
 import { Chart, registerables } from 'chart.js'
  
 export default {
