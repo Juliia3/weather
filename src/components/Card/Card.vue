@@ -23,18 +23,6 @@ defineProps({
         type: String,
         required: true
     },
-    time: {
-        type: String,
-        required: true
-    },
-    iconSmall:{
-        type: String,
-        required: true
-    },
-    degreesAll: {
-        type: Number,
-        required: true
-    },
 })
 </script>
 

@@ -41,12 +41,10 @@ import axios from 'axios'
             </div>
             <Card
             :day="today"
-            :icon="getWeatherIcon()"
+            :icon="getWeatherIcon()['main']"
             :degrees="currentTemp+' °C'"
-            :bg="bgSun" 
+            :bg="getWeatherIcon()['bg']"
             :city="currentCity"
-            time="13"
-            :iconSmall="smallSun"
             degreesAll="25°C"
             />
         </div>
@@ -147,40 +145,16 @@ export default {
     },
     getWeatherIcon() {
         if (
-            !this.currentCity.data || 
-            !this.currentCity.data.weather || 
-            (this.data.weather[0].id >= 700 && this.currentCity.data.weather[0] < 800) ||
-            !this.weatherIcons[this.currentCity.data.weather[0].main] 
-            ) {
-               return this.weatherIcons["Clouds"]; 
-            }
-            else if (
-            !this.currentCity.data || 
-            !this.currentCity.data.weather || 
-            (this.data.weather[0].id >= 200 && this.currentCity.data.weather[0] < 233) ||
-            !this.weatherIcons[this.currentCity.data.weather[0].main] 
-            ) {
-               return this.weatherIcons["Thunderstorm"]; 
-            }
-            else if (
-            !this.currentCity.data || 
-            !this.currentCity.data.weather || 
-            (this.data.weather[0].id >= 300 && this.currentCity.data.weather[0] < 532) ||
-            !this.weatherIcons[this.currentCity.data.weather[0].main] 
-            ) {
-               return this.weatherIcons["Rain"]; 
-            }
-            else if (
-            !this.currentCity.data || 
-            !this.currentCity.data.weather || 
-            (this.data.weather[0].id >= 800 && this.currentCity.data.weather[0] < 801) ||
-            !this.weatherIcons[this.currentCity.data.weather[0].main] 
-            ) {
-               return this.weatherIcons["Clear"]; 
+                !this.currentCity.data || 
+                !this.currentCity.data.weather || 
+                (this.currentCity.data.weather[0].id >= 700 && this.currentCity.data.weather[0].id < 800) ||
+                !this.weatherIcons[this.currentCity.data.weather[0].main] 
+                ) {
+                return this.weatherIcons["Clouds"];
             }
             return this.weatherIcons[this.currentCity.data.weather[0].main]
+        }
     }
-}
 }
 
 </script>
