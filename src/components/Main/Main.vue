@@ -2,19 +2,15 @@
 import './main.scss'
 import Card from '../Card/Card.vue'
 
-import smallCloud from '@/assets/img/small-cloud.svg'
 import cloud from '@/assets/img/cloud.svg'
 import bgCloud from '@/assets/img/bg-cloud.png'
 
-import smallSun from '@/assets/img/small-sun.svg'
 import sun from '@/assets/img/sun.svg'
 import bgSun from '@/assets/img/bg-sun.png'
 
-import smallRain from '@/assets/img/small-rain.svg'
 import rain from '@/assets/img/rain.svg'
 import bgRain from '@/assets/img/bg-rain.png'
 
-import smallThunder from '@/assets/img/small-thunder.svg'
 import thunder from '@/assets/img/thunder.svg'
 import bgThunder from '@/assets/img/bg-thunder.png'
 
@@ -91,6 +87,7 @@ export default {
                     main: thunder,
                     bg: bgThunder,
                 },
+
             }
         }
     },
@@ -152,8 +149,14 @@ export default {
         if (!this.data.weather || (this.data.weather[0] >= 700 && this.data.weather[0] < 800)){
                return cloud; 
             }
-            else{
-                return weatherIcons[data.weather[0].main]
+            else if(!this.data.weather || (this.data.weather[0] >= 200 && this.data.weather[0] < 233)){
+                return thunder;
+            }
+            else if(!this.data.weather || (this.data.weather[0] >= 500 && this.data.weather[0] < 532)){
+                return rain;
+            }
+            else if(!this.data.weather || (this.data.weather[0] >= 800 && this.data.weather[0] < 801)) {
+                return sun;
             }
     }
 }
