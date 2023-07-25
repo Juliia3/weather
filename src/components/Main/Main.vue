@@ -8,15 +8,15 @@ import bgCloud from '@/assets/img/bg-cloud.png'
 
 import smallSun from '@/assets/img/small-sun.svg'
 import sun from '@/assets/img/sun.svg'
-import bgSun from '@/assets/img/bg-sun.svg'
+import bgSun from '@/assets/img/bg-sun.png'
 
 import smallRain from '@/assets/img/small-rain.svg'
 import rain from '@/assets/img/rain.svg'
-import bgRain from '@/assets/img/bg-rain.svg'
+import bgRain from '@/assets/img/bg-rain.png'
 
 import smallThunder from '@/assets/img/small-thunder.svg'
 import thunder from '@/assets/img/thunder.svg'
-import bgThunder from '@/assets/img/bg-thunder.svg'
+import bgThunder from '@/assets/img/bg-thunder.png'
 
 import axios from 'axios'
 
@@ -47,7 +47,7 @@ import axios from 'axios'
             :day="today"
             :icon="getWeatherIcon()"
             :degrees="currentTemp+' °C'"
-            :bg="bgCloud" 
+            :bg="bgSun" 
             :city="currentCity"
             time="13"
             :iconSmall="smallSun"

@@ -1,5 +1,5 @@
 <template>
-    <div style="width: 700px;background-color: white;border-radius: 20px;">
+    <div style="width: 600px;background-color: white;border-radius: 20px;">
         <canvas id="chart"></canvas>
     </div>
 </template>
