@@ -75,7 +75,7 @@ export default {
                     main: cloud,
                     bg: bgCloud,
                 },
-                Sun: {
+                Clear: {
                     main: sun,
                     bg: bgSun,
                 },
@@ -83,7 +83,7 @@ export default {
                     main: rain,
                     bg: bgRain,
                 },
-                Thunder: {
+                ThunderStorm: {
                     main: thunder,
                     bg: bgThunder,
                 },
@@ -146,18 +146,39 @@ export default {
             this.data = citiesList.data
     },
     getWeatherIcon() {
-        if (!this.data.weather || (this.data.weather[0] >= 700 && this.data.weather[0] < 800)){
-               return cloud; 
+        if (
+            !this.currentCity.data || 
+            !this.currentCity.data.weather || 
+            (this.data.weather[0].id >= 700 && this.currentCity.data.weather[0] < 800) ||
+            !this.weatherIcons[this.currentCity.data.weather[0].main] 
+            ) {
+               return this.weatherIcons["Clouds"]; 
             }
-            else if(!this.data.weather || (this.data.weather[0] >= 200 && this.data.weather[0] < 233)){
-                return thunder;
+            else if (
+            !this.currentCity.data || 
+            !this.currentCity.data.weather || 
+            (this.data.weather[0].id >= 200 && this.currentCity.data.weather[0] < 233) ||
+            !this.weatherIcons[this.currentCity.data.weather[0].main] 
+            ) {
+               return this.weatherIcons["Thunderstorm"]; 
             }
-            else if(!this.data.weather || (this.data.weather[0] >= 500 && this.data.weather[0] < 532)){
-                return rain;
+            else if (
+            !this.currentCity.data || 
+            !this.currentCity.data.weather || 
+            (this.data.weather[0].id >= 300 && this.currentCity.data.weather[0] < 532) ||
+            !this.weatherIcons[this.currentCity.data.weather[0].main] 
+            ) {
+               return this.weatherIcons["Rain"]; 
             }
-            else if(!this.data.weather || (this.data.weather[0] >= 800 && this.data.weather[0] < 801)) {
-                return sun;
+            else if (
+            !this.currentCity.data || 
+            !this.currentCity.data.weather || 
+            (this.data.weather[0].id >= 800 && this.currentCity.data.weather[0] < 801) ||
+            !this.weatherIcons[this.currentCity.data.weather[0].main] 
+            ) {
+               return this.weatherIcons["Clear"]; 
             }
+            return this.weatherIcons[this.currentCity.data.weather[0].main]
     }
 }
 }
