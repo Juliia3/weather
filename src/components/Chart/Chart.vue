@@ -1,13 +1,22 @@
+<script setup>
+import './chart.scss'
+import { Chart, registerables } from 'chart.js'
+
+defineProps({
+    index:{
+        type: Number
+    }
+});
+
+
+</script>
 <template>
-    <!-- <div class="chart" style="width: 600px;background-color: white;border-radius: 20px;"> -->
         <div class="chart">
-        <canvas id="chart"></canvas>
+        <canvas :id="'chart'+index"></canvas>
     </div>
 </template>
 
 <script>
-import './chart.scss'
-import { Chart, registerables } from 'chart.js'
  
 export default {
     name: 'Chart',
@@ -44,7 +53,7 @@ export default {
         }
     },
     mounted() {
-        const ctx = document.getElementById('chart');
+        const ctx = document.getElementById('chart'+this.index);
         Chart.register(...registerables);
         new Chart(ctx, this.chartData);
  

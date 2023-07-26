@@ -3,12 +3,15 @@ import './card.scss'
 import Chart from '../Chart/Chart.vue'
 
 defineProps({
+    index: {
+        type: Number
+    },  
     city: {
         type: String,
         required: true
     },
     degrees: {
-        type: Number,
+        type: String,
         required: true
     },
     icon: {
@@ -42,9 +45,9 @@ defineProps({
                     <button class="card__button">Day</button>
                     <button class="card__button">Week</button>
                 </div>
-                <h2 class="card__city">{{ city }} <button class="plus">+</button></h2> 
+                <h2 class="card__city">{{ city }}</h2> 
                 <div class="card__info">
-                    <Chart />
+                    <Chart :index="index"/>
                 </div>
             </div>
         </div>

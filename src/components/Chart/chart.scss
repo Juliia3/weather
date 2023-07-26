@@ -9,4 +9,7 @@
     @media (max-width: $phone) {
         width: 100%;
     }
+    @media screen and (min-width: $phone) and (max-width: $tab) {
+        width: 100%;
+    }
 }

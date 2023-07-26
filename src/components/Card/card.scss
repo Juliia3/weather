@@ -8,6 +8,9 @@
     @media (max-width: $phone) {
        overflow-y: auto; 
     }
+    @media screen and (min-width: 481px) and (max-width: $tab) {
+        overflow-y: auto; 
+      }
     
     // text-align: center;
     &__container {
@@ -22,6 +25,12 @@
             padding: 0;
             background-color: transparent;
         }
+        @media screen and (min-width: 481px) and (max-width: $tab) {
+            flex-direction: column;
+            padding: 0;
+            background-color: transparent;
+            align-items: center;
+          }
     }
 
     &__bg {
@@ -32,6 +41,9 @@
     &__bg-img{
         max-width: 495px;
         @media (max-width: $phone) {
+            max-width: 100%;
+        }
+        @media screen and (min-width: 481px) and (max-width: $tab) {
             max-width: 100%;
         }
     }
@@ -49,10 +61,24 @@
             gap: 5px;
             font-size: 15px;
         }
+        @media screen and (min-width: 481px) and (max-width: $tab) {
+            top: 25%;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            font-size: 15px;
+        }
     }
 
     &__info-block {
         @media (max-width: $phone) {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 60%;
+            width: 80%;
+        }
+        @media screen and (min-width: $phone) and (max-width: $tab) {
             display: flex;
             flex-direction: column;
             position: absolute;
@@ -69,6 +95,9 @@
         @media (max-width: $phone) {
             order: 3;
         }
+        @media screen and (min-width: $phone) and (max-width: $tab) {
+            order: 3;
+          }
     }
 
     &__button {
@@ -80,6 +109,11 @@
         background-color: $bg2-color;
         opacity: 0.6;
         @media (max-width: $phone) {
+            width: 100px;
+            font-size: 20px;
+            margin-bottom: 70px;
+        }
+        @media screen and (min-width: $phone) and (max-width: $tab) {
             width: 100px;
             font-size: 20px;
             margin-bottom: 70px;
@@ -102,6 +136,10 @@
             order: 1;
             font-size: 40px;
         }
+        @media screen and (min-width: $phone) and (max-width: $tab) {
+            order: 1;
+            font-size: 40px;
+        }
     }
 
     &__info {
@@ -109,6 +147,9 @@
         border-radius: 25px;
         // padding: 30px;
         @media (max-width: $phone) {
+            order: 2;
+        }
+        @media screen and (min-width: $phone) and (max-width: $tab) {
             order: 2;
         }
     }

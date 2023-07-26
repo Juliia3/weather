@@ -2,15 +2,16 @@
 @import '../../assets/styles/variables/_fonts.scss';
 @import '../../assets/styles/variables/_sizing.scss';
 
-.main {
-    overflow-y: auto; 
+.search-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.block {
     &__container {
+        margin-bottom: 40px;
         @media (max-width: $phone) {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        @media screen and (min-width: $phone) and (max-width: $tab) {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -28,9 +29,6 @@
         margin-bottom: 26px;
         text-transform: capitalize;
         @media (max-width: $phone) {
-            width: 100%;
-        }
-        @media screen and (min-width: $phone) and (max-width: $tab) {
             width: 100%;
         }
     }
