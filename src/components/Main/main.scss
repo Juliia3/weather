@@ -3,7 +3,6 @@
 @import '../../assets/styles/variables/_sizing.scss';
 
 .main {
-    overflow-y: auto; 
     &__container {
         @media (max-width: $phone) {
             display: flex;
