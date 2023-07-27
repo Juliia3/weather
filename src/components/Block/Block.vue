@@ -18,7 +18,8 @@ import bgThunder from '@/assets/img/bg-thunder.png'
 
 import axios from 'axios'
 
-defineProps({
+
+const prop = defineProps({
     index:{
         type: Number
     },
@@ -26,6 +27,8 @@ defineProps({
         type: Function
     }
 });
+
+
 
 </script>
 
@@ -37,7 +40,7 @@ defineProps({
             </div>
             
             <Card :index="index" :day="today" :icon="getWeatherIcon()['main']" :degrees="currentTemp + ' °C'" :bg="getWeatherIcon()['bg']"
-                :city="currentCity.name" degreesAll="25°C" />
+                :city="currentCity.name ? currentCity.name : ''" :hours="hours" :temperatures="temperatures" />
     </div>
 </template>
 
@@ -46,6 +49,8 @@ export default {
     data() {
         return {
             currentCity: '',
+            hours:[],
+            temperatures:[], 
             today: '',
             currentTemp: '',
             search: '',
@@ -87,11 +92,19 @@ export default {
 
             this.currentTemp = data.main.temp.toFixed(1)
 
-            this.get7DaysForecast(data.coord.lat, data.coord.lon)
+            this.getHourlyForecast(data.coord.lat, data.coord.lon)
         },
-        async get7DaysForecast(lat, lon) {
-            const get7Days = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,hourly,minutely,alerts&units=metric&appid=547343e58f273e78496cc775ed43bf31`)
-            // console.log(get7Days.data)
+        async getHourlyForecast(lat, lon) {
+            const forecast = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&exclude=current,minutely,alerts&cnt=10&units=metric&appid=547343e58f273e78496cc775ed43bf31`)
+            let temperatures = []
+            let hours = [];
+            forecast.data.list.forEach(function(e){
+                let hour = e.dt_txt.split(" ")[1]
+                hours.push(hour.substr(0,5))
+                temperatures.push(e.main.temp)
+            })
+            this.hours = hours;
+            this.temperatures = temperatures;
         },
         async getCityByIP() {
             const getCity = await axios.get('https://ipapi.co/json/');

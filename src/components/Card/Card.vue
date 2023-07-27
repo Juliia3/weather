@@ -2,6 +2,7 @@
 import './card.scss'
 import Chart from '../Chart/Chart.vue'
 
+
 defineProps({
     index: {
         type: Number
@@ -26,6 +27,12 @@ defineProps({
         type: String,
         required: true
     },
+    hours: {
+        type: Array
+    },
+    temperatures: {
+        type: Array
+    }
 })
 </script>
 
@@ -47,7 +54,7 @@ defineProps({
                 </div>
                 <h2 class="card__city">{{ city }}</h2> 
                 <div class="card__info">
-                    <Chart :index="index"/>
+                    <Chart :index="index" :hours="hours" :temperatures="temperatures"/>
                 </div>
             </div>
         </div>
