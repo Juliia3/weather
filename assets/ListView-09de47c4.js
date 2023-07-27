@@ -1,0 +1,1 @@
+import{r,o as a,c as _,a as p}from"./index-5f64041d.js";const i=(t,e)=>{const o=t.__vccOpts||t;for(const[s,c]of e)o[s]=c;return o},d={},f={class:"about"};function l(t,e,o,s,c,m){const n=r("List");return a(),_("div",f,[p(n)])}const v=i(d,[["render",l]]);export{v as default};
